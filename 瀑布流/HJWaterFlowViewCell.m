@@ -12,6 +12,14 @@
 
 @implementation HJWaterFlowViewCell
 
+- (instancetype) initWithIdentifier:(NSString *)identifier{
+    if (self = [super init]) {
+        self.identifier = identifier;
+    }
+    return self;
+}
+
+
 -(instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -36,7 +44,6 @@
 - (void)setModel:(HJModel *)model{
     [self.imageView setImageWithURL:[NSURL URLWithString:model.img]];
     self.priceLabel.text = model.price;
-//    self.frame = CGRectMake(0, 0, [model.width floatValue], [model.height floatValue]);
 }
 
 - (UIImageView *)imageView

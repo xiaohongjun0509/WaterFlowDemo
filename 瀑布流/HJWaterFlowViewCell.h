@@ -11,10 +11,8 @@
 #import "HJModel.h"
 
 @interface HJWaterFlowViewCell : UIView
-
+@property (copy, nonatomic) NSString *identifier;
 @property (strong, nonatomic) UIImageView *imageView;
-
-
 @property (strong, nonatomic) UILabel *priceLabel;
 - (void) setModel :(HJModel *)model;
 
