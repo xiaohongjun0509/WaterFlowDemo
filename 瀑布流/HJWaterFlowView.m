@@ -108,7 +108,7 @@
 //        HJWaterFlowViewCell  *cell = [self reuseIdentifier:@"cell"];
         HJWaterFlowViewCell *cell = self.visibleCellDicts[indexPath];
         if (cell ==nil) {
-            cell = [_dataSource waterFlowView:self cellForRowAtIndexPath:indexPath];
+            cell = [_mdelegate waterFlowView:self cellForRowAtIndexPath:indexPath];
             if ([self visibleInScreen:frame]) {
                 [self.visibleCellDicts setObject:cell forKey:indexPath];
                 [self addSubview:cell];
@@ -158,6 +158,32 @@
         _cellFrameArray = [NSMutableArray array];
     }else{
         [_cellFrameArray removeAllObjects];
+    }
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch * touchView = [touches anyObject];
+    CGPoint point = [touchView locationInView:self];
+    NSArray * keyArray = [self.visibleCellDicts allKeys];
+    for (NSIndexPath *indexPath in keyArray) {
+        HJWaterFlowViewCell *cell = self.visibleCellDicts[indexPath];
+        if (CGRectContainsPoint(cell.frame, point)) {
+            if ([self.mdelegate respondsToSelector:@selector(waterFlowView:didSelectRowAtIndex:)]) {
+                [self.mdelegate waterFlowView:self didSelectRowAtIndex :indexPath];
+            }
+            break;
+        }
+    }
+    
+}
+
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    if(self.contentOffset.y + self.bounds.size.height > self.contentSize.height)
+    {
+//        在这里加载更多。
     }
 }
 

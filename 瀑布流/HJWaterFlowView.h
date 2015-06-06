@@ -17,6 +17,13 @@
 
 - (CGFloat)waterFlowView:(HJWaterFlowView *)waterView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (void) waterFlowView:(HJWaterFlowView *)waterView didSelectRowAtIndex :(NSIndexPath *)index;
+- (HJWaterFlowViewCell *)waterFlowView:(HJWaterFlowView *)waterView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
+
+@end
+
+@protocol HJWaterFlowRefreshDelegate <NSObject>
+
+
 
 @end
 
@@ -25,7 +32,7 @@
 
 - (NSInteger)waterFlowView:(HJWaterFlowView *)waterView numberOfColumns:(NSInteger)section;
 
-- (HJWaterFlowViewCell *)waterFlowView:(HJWaterFlowView *)waterView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
+
 
 //UITableView
 

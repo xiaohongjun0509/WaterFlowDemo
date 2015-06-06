@@ -43,7 +43,11 @@
         HJModel *model = [[HJModel alloc] initWithDict:dict];
         [self.dataList addObject:model];
     }
-    
+//    for(int i = 0; i < 10; i++)
+//    {
+//         [self.dataList addObjectsFromArray:self.dataList];
+//    }
+   [self.dataList addObjectsFromArray:self.dataList];
 }
 
 - (void)viewDidLoad {
@@ -85,6 +89,10 @@
     return self.dataList.count;
 }
 
+
+- (void)waterFlowView:(HJWaterFlowView *)waterView didSelectRowAtIndex:(NSIndexPath *)index{
+    NSLog(@"didSelect  %ld,%ld",index.section,index.row);
+}
 
 - (NSMutableArray *)dataList
 {
