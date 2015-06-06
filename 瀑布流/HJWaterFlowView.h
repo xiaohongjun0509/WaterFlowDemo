@@ -16,6 +16,7 @@
 @protocol HJWaterFlowViewDelegate <NSObject, UIScrollViewDelegate>
 
 - (CGFloat)waterFlowView:(HJWaterFlowView *)waterView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void) waterFlowView:(HJWaterFlowView *)waterView didSelectRowAtIndex :(NSIndexPath *)index;
 
 @end
 
